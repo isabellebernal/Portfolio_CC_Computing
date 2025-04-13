@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase'; // Adjust the path as needed
+import './PortfolioPage.css';
 
 const PortfolioPage = () => {
   const { id } = useParams();
@@ -80,54 +81,68 @@ const PortfolioPage = () => {
   return (
     <div className="portfolio-page">
       {isEditing ? (
-        <div className="edit-form">
+        <div className="edit-container">
           <input
             type="text"
             value={editTitle}
             onChange={(e) => setEditTitle(e.target.value)}
             placeholder="Title"
+            className="input-field"
           />
           <input
             type="text"
             value={editName}
             onChange={(e) => setEditName(e.target.value)}
             placeholder="Name"
+            className="input-field"
           />
           <input
             type="text"
             value={editProfilePic}
             onChange={(e) => setEditProfilePic(e.target.value)}
             placeholder="Profile Picture URL"
+            className="input-field"
           />
           <textarea
             value={editAboutMe}
             onChange={(e) => setEditAboutMe(e.target.value)}
             placeholder="About Me"
+            className="textarea-field"
           />
           <div className="edit-actions">
-            <button onClick={handleSave}>Save</button>
-            <button onClick={() => setIsEditing(false)}>Cancel</button>
+            <button onClick={handleSave} className="button-primary">Save</button>
+            <button onClick={() => setIsEditing(false)} className="button-secondary">Cancel</button>
           </div>
         </div>
       ) : (
-        <div className="portfolio-details">
-          <h1>{portfolio.title}</h1>
-          {portfolio.profilePic && (
-            <img
+        <div className="portfolio-container">
+          <div className="portfolio-content">
+            <div className="profile-info">
+            {/*profile Image*/}
+              {portfolio.profilePic && (
+              <img
               src={portfolio.profilePic}
               alt={`${portfolio.name}'s profile`}
-              className="portfolio-profile-pic"
-            />
-          )}
-          <h2>{portfolio.name}</h2>
-          <p>{portfolio.aboutMe}</p>
-          <div className="action-buttons">
-            <button onClick={() => setIsEditing(true)} className="edit-button">
+              className="profile-image"
+              />
+            )}
+          {/*Text*/}
+          <div>
+            <h1 className="portfolio-name">{portfolio.name}</h1>
+            <h2 className="about-heading">About Me</h2>
+            <p className="portfolio-title">{portfolio.aboutMe}</p>
+          </div>
+        </div>
+        
+        {/*Buttons*/}
+        <div className="button-group">
+           <button onClick={() => setIsEditing(true)} className="button-primary">
               Edit
             </button>
-            <button onClick={handleDelete} className="delete-button">
+            <button onClick={handleDelete} className="button-danger">
               Trash
             </button>
+            </div>
           </div>
         </div>
       )}
