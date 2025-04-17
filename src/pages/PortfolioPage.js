@@ -1,14 +1,9 @@
 // src/pages/PortfolioPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import { doc, getDoc, deleteDoc, updateDoc, collection, getDocs, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../firebase'; // Adjust the path as needed
-=======
-import { doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore';
-import { db } from '../firebase'; // Adjust the path as needed
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
 import './PortfolioPage.css';
 
 const PortfolioPage = () => {
@@ -17,19 +12,13 @@ const PortfolioPage = () => {
   const [portfolio, setPortfolio] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
-<<<<<<< HEAD
   const [viewMode, setViewMode] = useState('portfolio'); // Toggle between 'portfolio' and 'blog'
 
   // States for editable fields (portfolio)
-=======
-
-  // States for editable fields
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
   const [editTitle, setEditTitle] = useState('');
   const [editName, setEditName] = useState('');
   const [editAboutMe, setEditAboutMe] = useState('');
   const [editProfilePic, setEditProfilePic] = useState('');
-<<<<<<< HEAD
   const [sections, setSections] = useState([]);
   const [newSection, setNewSection] = useState({ title: '', description: '' });
   const [showSectionInput, setShowSectionInput] = useState(false);
@@ -40,10 +29,6 @@ const PortfolioPage = () => {
   const [showBlogInput, setShowBlogInput] = useState(false);
 
   // Fetch portfolio and blog data from Firestore
-=======
-
-  // Fetch portfolio data from Firestore
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
@@ -52,18 +37,11 @@ const PortfolioPage = () => {
         if (portfolioSnap.exists()) {
           const data = portfolioSnap.data();
           setPortfolio(data);
-<<<<<<< HEAD
-=======
-          // Initialize editing fields with fetched data
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
           setEditTitle(data.title || '');
           setEditName(data.name || '');
           setEditAboutMe(data.aboutMe || '');
           setEditProfilePic(data.profilePic || '');
-<<<<<<< HEAD
           setSections(data.sections || []);
-=======
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
         } else {
           console.error('No such portfolio!');
         }
@@ -74,7 +52,6 @@ const PortfolioPage = () => {
       }
     };
 
-<<<<<<< HEAD
     const fetchBlogs = async () => {
       try {
         const blogsRef = collection(db, 'portfolios', id, 'blogs');
@@ -92,9 +69,6 @@ const PortfolioPage = () => {
 
     fetchPortfolio();
     fetchBlogs();
-=======
-    fetchPortfolio();
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
   }, [id]);
 
   // Delete portfolio function (trash button)
@@ -109,11 +83,7 @@ const PortfolioPage = () => {
     }
   };
 
-<<<<<<< HEAD
   // Save portfolio changes when editing
-=======
-  // Save changes when editing
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
   const handleSave = async () => {
     try {
       const portfolioRef = doc(db, 'portfolios', id);
@@ -122,22 +92,15 @@ const PortfolioPage = () => {
         name: editName,
         aboutMe: editAboutMe,
         profilePic: editProfilePic,
-<<<<<<< HEAD
         sections: sections,
       });
       setPortfolio({ ...portfolio, title: editTitle, name: editName, aboutMe: editAboutMe, profilePic: editProfilePic, sections });
-=======
-      });
-      // Update local state and exit edit mode
-      setPortfolio({ ...portfolio, title: editTitle, name: editName, aboutMe: editAboutMe, profilePic: editProfilePic });
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
       setIsEditing(false);
     } catch (error) {
       console.error('Error updating portfolio:', error);
     }
   };
 
-<<<<<<< HEAD
   // Add a new section
   const handleAddSection = () => {
     if (newSection.title.trim() && newSection.description.trim()) {
@@ -210,8 +173,6 @@ const PortfolioPage = () => {
     }
   };
 
-=======
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
   if (loading) return <p>Loading...</p>;
   if (!portfolio) return <p>Portfolio not found.</p>;
 
@@ -240,7 +201,6 @@ const PortfolioPage = () => {
             placeholder="Profile Picture URL"
             className="input-field"
           />
-<<<<<<< HEAD
           <div className="view-toggle">
             <h2 className={viewMode === 'portfolio' ? 'active' : ''}>Portfolio</h2>
             <button
@@ -376,24 +336,11 @@ const PortfolioPage = () => {
               </div>
             </>
           )}
-=======
-          <textarea
-            value={editAboutMe}
-            onChange={(e) => setEditAboutMe(e.target.value)}
-            placeholder="About Me"
-            className="textarea-field"
-          />
-          <div className="edit-actions">
-            <button onClick={handleSave} className="button-primary">Save</button>
-            <button onClick={() => setIsEditing(false)} className="button-secondary">Cancel</button>
-          </div>
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
         </div>
       ) : (
         <div className="portfolio-container">
           <div className="portfolio-content">
             <div className="profile-info">
-<<<<<<< HEAD
               {portfolio.profilePic && (
                 <img
                   src={portfolio.profilePic}
@@ -454,32 +401,6 @@ const PortfolioPage = () => {
               <button onClick={handleDelete} className="button-danger">
                 Trash
               </button>
-=======
-            {/*profile Image*/}
-              {portfolio.profilePic && (
-              <img
-              src={portfolio.profilePic}
-              alt={`${portfolio.name}'s profile`}
-              className="profile-image"
-              />
-            )}
-          {/*Text*/}
-          <div>
-            <h1 className="portfolio-name">{portfolio.name}</h1>
-            <h2 className="about-heading">About Me</h2>
-            <p className="portfolio-title">{portfolio.aboutMe}</p>
-          </div>
-        </div>
-        
-        {/*Buttons*/}
-        <div className="button-group">
-           <button onClick={() => setIsEditing(true)} className="button-primary">
-              Edit
-            </button>
-            <button onClick={handleDelete} className="button-danger">
-              Trash
-            </button>
->>>>>>> 7c07938e89741543b03d3ecd0504f7b3e92ee0f0
             </div>
           </div>
         </div>
