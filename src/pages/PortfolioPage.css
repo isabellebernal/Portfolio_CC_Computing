@@ -1,0 +1,650 @@
+/* src/pages/PortfolioPage.css */
+
+.portfolio-page {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f7fafc;
+  min-height: 100vh;
+}
+
+/* Edit mode container */
+.edit-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.textarea-field {
+  height: 150px;
+  resize: vertical;
+}
+
+/* Buttons */
+.button-primary {
+  padding: 10px 20px;
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-primary:hover {
+  background-color: #553c9a;
+}
+
+.button-secondary {
+  padding: 10px 20px;
+  background-color: #e2e8f0;
+  color: #2d3748;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-secondary:hover {
+  background-color: #cbd5e0;
+}
+
+.button-danger {
+  padding: 10px 20px;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-danger:hover {
+  background-color: #c53030;
+}
+
+/* Portfolio content when not in edit mode */
+.portfolio-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4c51bf;
+}
+
+.portfolio-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.about-heading {
+  font-size: 20px;
+  color: #4a5568;
+}
+
+.portfolio-title {
+  font-size: 16px;
+  color: #718096;
+  margin-top: 10px;
+}
+
+/* Button group */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* New Styles for Sections */
+.sections-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.section-display {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.section-display h3 {
+  margin: 0 0 10px 0;
+  color: #2d3748;
+  font-size: 20px;
+}
+
+.section-display p {
+  margin: 0;
+  color: #718096;
+  font-size: 16px;
+}
+
+.section-input,
+.section-preview {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.edit-actions,
+.section-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+/* src/pages/PortfolioPage.css */
+
+.portfolio-page {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+/* Edit mode container */
+.edit-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.input-field:focus,
+.textarea-field:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.textarea-field {
+  height: 150px;
+  resize: vertical;
+}
+
+/* Buttons */
+.button-primary {
+  padding: 10px 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-primary:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.button-secondary {
+  padding: 10px 20px;
+  background-color: var(--border);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-secondary:hover {
+  background-color: var(--text-secondary);
+}
+
+.button-danger {
+  padding: 10px 20px;
+  background-color: #e53e3e;
+  color: var(--button-text);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-danger:hover {
+  background-color: #c53030;
+}
+
+/* Portfolio content when not in edit mode */
+.portfolio-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4c51bf;
+}
+
+.portfolio-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.about-heading {
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+.portfolio-title {
+  font-size: 16px;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+}
+
+/* Button group */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Styles for Sections */
+.sections-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.section-display {
+  background-color: var(--card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.section-display h3 {
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+  font-size: 20px;
+}
+
+.section-display p {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 16px;
+}
+
+.section-input,
+.section-preview {
+  background-color: var(--border);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+.edit-actions,
+.section-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* src/pages/PortfolioPage.css */
+
+.portfolio-page {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+/* Edit mode container */
+.edit-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.input-field:focus,
+.textarea-field:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.textarea-field {
+  height: 150px;
+  resize: vertical;
+}
+
+/* View toggle (About Me / Blog) */
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.view-toggle h2 {
+  font-size: 20px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.view-toggle h2.active {
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+.toggle-button {
+  padding: 5px 10px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Buttons */
+.button-primary {
+  padding: 10px 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-primary:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.button-secondary {
+  padding: 10px 20px;
+  background-color: var(--border);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-secondary:hover {
+  background-color: var(--text-secondary);
+}
+
+.button-danger {
+  padding: 10px 20px;
+  background-color: #e53e3e;
+  color: var(--button-text);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-danger:hover {
+  background-color: #c53030;
+}
+
+/* Portfolio content when not in edit mode */
+.portfolio-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4c51bf;
+}
+
+.portfolio-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.about-heading {
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+.portfolio-title {
+  font-size: 16px;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+}
+
+/* Button group */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Styles for Sections */
+.sections-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.section-display {
+  background-color: var(--card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.section-display h3 {
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+  font-size: 20px;
+}
+
+.section-display p {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 16px;
+}
+
+.section-input,
+.section-preview {
+  background-color: var(--border);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+/* Styles for Blogs */
+.blogs-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.blog-display {
+  background-color: var(--card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.blog-display h3 {
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+  font-size: 20px;
+}
+
+.blog-display p {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 16px;
+}
+
+.blog-input,
+.blog-preview {
+  background-color: var(--border);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+.edit-actions,
+.section-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.portfolio-page {
+  line-height: 1.6;
+}
+
+.section-display {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-display p,
+.section-display ul {
+  margin-bottom: 1rem;
+}
+
+.section-display p {
+  white-space: pre-line;  /* if you still want manual line‑breaks */
+}
+
+.section-display ul {
+  list-style: disc inside;
+  margin-left: 1.25rem;
+}
+
+.section-display ul li {
+  margin-bottom: 0.75rem;
+}

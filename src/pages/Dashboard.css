@@ -1,0 +1,352 @@
+/* src/pages/Dashboard.css */
+.dashboard-container {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6b46c1;
+}
+
+.dashboard-link {
+    text-decoration: none;
+    color: #2d3748;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+}
+
+.dashboard-main {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.dashboard-main h1 {
+    font-size: 32px;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.dashboard-main p {
+    color: #718096;
+    margin-bottom: 40px;
+}
+
+/* Container for CreatePortfolioCard and PortfolioList */
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.portfolio-card {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    background-color: #edf2f7;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.portfolio-card:hover {
+    transform: scale(1.05);
+}
+
+.plus-icon {
+    font-size: 24px;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+.portfolio-card p {
+    color: #4a5568;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #2d3748;
+}
+
+.modal-content p {
+    color: #718096;
+    margin-bottom: 15px;
+}
+
+.modal-input {
+    width: 80%;
+    padding: 6px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-cancel {
+    padding: 8px 16px;
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #2d3748;
+}
+
+.modal-create {
+    padding: 8px 16px;
+    background-color: #6b46c1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #718096;
+}
+
+/* Portfolio List Styles */
+.portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.portfolio-item {
+    text-align: center;
+}
+
+.portfolio-card-created {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border: 2px solid #9b59b6;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: transform 0.2s, box-shadow 0.2s; /* Added transition for transform and shadow */
+}
+
+.portfolio-card-created:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.document-icon {
+    font-size: 24px;
+    color: #4a5568;
+}
+
+.portfolio-title {
+    color: #4a5568;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* src/pages/Dashboard.css */
+
+/* Main dashboard container */
+.dashboard-container {
+    padding: 20px;
+    background-color: var(--background);
+    min-height: 100vh;
+  }
+  
+  /* Header (if applicable, before the global Header component was added) */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  
+  /* Portfolio cards */
+  .portfolio-card,
+  .portfolio-card-created {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: var(--shadow);
+  }
+  
+  .portfolio-card {
+    border: 2px dashed var(--border);
+    background-color: var(--card-bg);
+  }
+  
+  .portfolio-card-created {
+    border: 2px solid #9b59b6;
+    background-color: var(--card-bg);
+  }
+  
+  .portfolio-card:hover,
+  .portfolio-card-created:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Portfolio list */
+  .portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .portfolio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .document-icon {
+    font-size: 50px;
+  }
+  
+  .portfolio-title {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--text-tertiary);
+  }
+  
+  /* Modal for creating portfolio */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    color: var(--text-primary);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-primary);
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  .modal-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modal-actions button:first-child {
+    background-color: var(--border);
+    color: var(--text-primary);
+  }
+  
+  .modal-actions button:last-child {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+  }

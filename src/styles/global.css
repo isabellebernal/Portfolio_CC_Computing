@@ -1,0 +1,37 @@
+/* src/styles/global.css */
+:root {
+    /* Light mode variables (default) */
+    --background: #f7fafc;
+    --card-bg: #ffffff;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --text-tertiary: #718096;
+    --border: #ccc;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --button-bg: #6b46c1;
+    --button-hover-bg: #553c9a;
+    --button-text: white;
+    --header-bg: #ffffff;
+  }
+  
+  [data-theme='dark'] {
+    /* Dark mode variables */
+    --background: #1a202c;
+    --card-bg: #2d3748;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --text-tertiary: #718096;
+    --border: #4a5568;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --button-bg: #805ad5;
+    --button-hover-bg: #6b46c1;
+    --button-text: #ffffff;
+    --header-bg: #2d3748;
+  }
+  
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: Arial, sans-serif;
+  }
