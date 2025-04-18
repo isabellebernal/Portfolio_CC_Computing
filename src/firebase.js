@@ -9,7 +9,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyBXx9V60L4g0RQQLNGGSzEdsa44Fsl3ulw",
   authDomain: "personal-portfolio-cs496.firebaseapp.com",
   projectId: "personal-portfolio-cs496",
-  storageBucket: "personal-portfolio-cs496.firebasestorage.app",
+  storageBucket: "personal-portfolio-cs496.appspot.com",
   messagingSenderId: "538139315346",
   appId: "1:538139315346:web:289c33e694a6ed46d4aa4b",
   measurementId: "G-XL6PHVMJ8B"

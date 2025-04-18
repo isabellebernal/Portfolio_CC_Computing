@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, deleteDoc, updateDoc, collection, getDocs, addDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../firebase'; // Adjust the path as needed
+import { db } from '../firebase';
 import './PortfolioPage.css';
 
 const PortfolioPage = () => {
@@ -120,48 +119,38 @@ const PortfolioPage = () => {
   // Add a new blog post
   const handleAddBlog = async () => {
     console.log('Attempting to add blog:', newBlog); // Debug log
-    if (!newBlog.title.trim() || !newBlog.description.trim() || !newBlog.image) {
-      alert('Please fill in all fields and upload an image.');
+    if (!newBlog.title.trim() || !newBlog.description.trim()) {
+      alert('Please fill in both title and description.');
       return;
     }
 
-    try {
-      // Upload image to Firebase Storage
-      const imageRef = ref(storage, `blog-images/${id}/${newBlog.image.name}`);
-      const snapshot = await uploadBytes(imageRef, newBlog.image);
-      console.log('Image uploaded, snapshot:', snapshot); // Debug log
-      const imageUrl = await getDownloadURL(imageRef);
-      console.log('Image URL:', imageUrl); // Debug log
+  try {
+    const blogsRef = collection(db, 'portfolios', id, 'blogs');
+    const newBlogDoc = await addDoc(blogsRef, {
+      title: newBlog.title,
+      description: newBlog.description,
+      imageUrl: newBlog.imageUrl || '',
+      createdAt: new Date(),
+    });
+ const newBlogEntry = {
+      id: newBlogDoc.id,
+      title: newBlog.title,
+      description: newBlog.description,
+      imageUrl: newBlog.imageUrl || '',
+      createdAt: new Date(),
+    };
 
-      // Add blog post to Firestore
-      const blogsRef = collection(db, 'portfolios', id, 'blogs');
-      const newBlogDoc = await addDoc(blogsRef, {
-        title: newBlog.title,
-        description: newBlog.description,
-        imageUrl: imageUrl,
-        createdAt: new Date(),
-      });
-      console.log('Blog added to Firestore, doc ID:', newBlogDoc.id); // Debug log
+    setBlogs([...blogs, newBlogEntry]);
+    setNewBlog({ title: '', description: '', imageUrl: '' });
+    setShowBlogInput(false);
+    setViewMode('blog');
+    setIsEditing(false);
+  } catch (error) {
+    console.error('Error adding blog:', error);
+    alert('Failed to add blog. Check console for details.');
+  }
+};
 
-      // Update local state
-      const newBlogEntry = {
-        id: newBlogDoc.id,
-        title: newBlog.title,
-        description: newBlog.description,
-        imageUrl: imageUrl,
-        createdAt: new Date(),
-      };
-      setBlogs([...blogs, newBlogEntry]);
-      console.log('Updated blogs state:', [...blogs, newBlogEntry]); // Debug log
-
-      // Reset form
-      setNewBlog({ title: '', description: '', image: null });
-      setShowBlogInput(false);
-    } catch (error) {
-      console.error('Error adding blog:', error);
-      alert('Failed to add blog. Check console for details.');
-    }
-  };
 
   // Remove a blog post
   const handleRemoveBlog = async (blogId) => {
@@ -289,11 +278,13 @@ const PortfolioPage = () => {
                     className="textarea-field"
                   />
                   <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => setNewBlog({ ...newBlog, image: e.target.files[0] })}
-                    className="input-field"
-                  />
+  		   type="text"
+  		   placeholder="Image URL (optional)"
+  		   value={newBlog.imageUrl || ''}
+  		   onChange={(e) => setNewBlog({ ...newBlog, imageUrl: e.target.value })}
+  		    className="input-field"
+/>
+
                   <div className="edit-actions">
                     <button onClick={handleAddBlog} className="button-primary">Add Blog Post</button>
                     <button onClick={() => setShowBlogInput(false)} className="button-secondary">Cancel</button>
